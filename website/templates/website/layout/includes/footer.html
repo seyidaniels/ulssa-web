@@ -1,0 +1,34 @@
+      <!-- Footer-->
+         {% load static %}
+
+    <footer class="bg-dark">
+      <!-- Subscription-->
+      <div class="py-4">
+                <div class="d-md-flex justify-content-center align-items-center py-4 text-center text-md-left" >
+            <p class="m-0 text-lg text-white "><span class='opacity-60'>© ULSSA 2019</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="fe-icon-chevron-up"></i></a>
+    <!-- Backdrop-->
+    <div class="site-backdrop"></div>
+    <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="{% static 'website/js/vendor.min.js' %}"></script>
+    <script src="{% static 'website/js/theme.min.js' %}"></script>
+    <script src="{% static 'website/js/typed.js' %}" >  
+
+    </script>
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+    AOS.init();
+    var json = "{{captions | safe}}"
+    var json = json.split('&lt;Gallery:');
+    console.log(json);
+    var typed = new Typed('.typings', {
+  strings: ["We are the University of Lagos Science Student Association", "The Most Populated Faculty in UNILAG", "Founded in 1989"],
+  typeSpeed: 70,
+  loop: true
+});
+    </script>

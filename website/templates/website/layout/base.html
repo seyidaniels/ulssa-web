@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% with path="website/layout/includes/" %}
+<head>
+{% include path|add:"head.html" %}
+        <title>{% block title %}
+        {% endblock %}</title>
+</head>
+<body data-aos="fade-in" data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000">
+
+{%include path|add:'navbar.html'%}
+        {% block content %}{% endblock %}
+{% include path|add:'footer.html' %}
+</body>
+{% endwith %}
+</html>

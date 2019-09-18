@@ -1,0 +1,131 @@
+ {% extends "website/layout/base.html" %}
+{%block title %} ULSSA | a Connected Science {%endblock%}
+{% block content %}
+    <!-- Hero Slider-->
+
+         {% load static %}
+
+    <section class="owl-carousel dots-inside controls-hidden-mobile" data-owl-carousel="{ &quot;nav&quot;: true, &quot;dots&quot;: true, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 7000 }">
+     {% for image in gallery  %}
+      <div class="bg-cover bg-center bg-no-repeat py-5" style="background-image: url({{image.image.url}});"><span class="bg-overlay"></span>
+        <div class="container bg-content py-md-5">
+          <div class="row justify-content-center py-md-5">
+            <div class="col-12 text-center py-md-5">
+              <div class="d-table w-100 bg-no-repeat bg-center" style="min-height: 550px; background-size: 452px 550px;">
+                <div class="d-table-cell align-middle">
+                  <h3 class="display-4 text-white"><em class='font-weight-light'>a    </em>Connected Science</h3>
+                  <p class="text-xl text-white opacity-75 pb-4">{{image.caption}}</p><a class="btn btn-style-4 btn-light" href="#">Learn More</a>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+     {% endfor %}
+     
+    </section>
+    <!-- About-->
+    <section class="container my-5" data-aos="zoom-in" >
+      <div class="bg-secondary px-3 py-5">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-10 pt-3 text-center">
+                  <p class="typings lead text-primary"  ></p>
+                  <button class="btn btn-secondary">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container pt-3" data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-once="false"
+>
+          <!-- Related Projects Carousel-->
+      <h2 class="h3 text-center">Our Executives</h2>
+      <div class="owl-carousel carousel-flush" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true,&quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+        <!-- Executives-->
+        {% for executive in executives %}
+        <div class="mb-30 pb-3">
+          <div class="card portfolio-card"><a class="portfolio-thumb" href="portfolio-single-side-gallery-list.html"><img height="300PX;" src="{{executive.image.url}}" alt="Portfolio Thumbnail"></a>
+            <div class="card-body">
+              <div ><span><i class="fe-icon-user"></i>{{executive.firstname }} {{executive.lastname}} </span></div>
+              <h5 class="portfolio-title"><a href="portfolio-single-side-gallery-list.html">{{executive.post}}</a></h5>
+            </div>
+            <div class="card-footer">
+              <div class="portfolio-meta"><a href="#"><i class="fe-icon-heart text-accent"></i>8</a></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Executives -->
+        {% endfor %}
+
+      </div>
+    </div>
+    </section>
+    <!-- News ans Events-->
+    <section class="container-fluid pt-sm-4 pb-5" >
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 mb-5 mb-lg-0" data-aos="zoom-in-right"   data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-once="false">
+
+          <div class="position-relative bg-cover bg-center bg-no-repeat px-4 py-5" style="background-image: url({% static  'website/img/homepages/corporate-website/event-bg.jpg' %})"><span class="bg-overlay" style="opacity: .1;"></span>
+            <div class="bg-content pt-4 text-center">
+              <h2 class="text-white mb-2 pb-1">Upcoming Event</h2>
+              {{event}}
+               <h3 class="font-family-body font-weight-light text-white mb-2">{{event.title}} <span class="text-primary">!!!</span></h3> 
+              <div class="countdown countdown-style-2 countdown-light-skin h4 mb-3" data-date-time="10/10/2020 12:00" data-labels="{&quot;label-day&quot;: &quot;Days&quot;, &quot;label-hour&quot;: &quot;Hours&quot;, &quot;label-minute&quot;: &quot;Mins&quot;, &quot;label-second&quot;: &quot;Secs&quot;}"></div><br><a class="btn btn-style-4 btn-gradient mb-3" href="#">More Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-5 col-lg-6" data-aos="zoom-in-left"   data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-once="false">
+          <div class="pl-xl-5">
+            <div class="d-sm-flex justify-content-between text-center text-sm-left">
+              <h2 class="h4">Latest news</h2><a class="btn btn-style-4 btn-primary btn-sm" href="#">Read all news</a>
+            </div>
+            <div class="row pt-4">
+              <div class="col-sm-6 mb-4">
+                <div class="blog-card border"><a class="post-thumb" href="#"><img src="{% static 'website\img\homepages\corporate-website\news01.jpg' %}" alt="Post Thumbnail"></a>
+                  <div class="card-body">
+                    <h5 class="post-title"><a href="#">Ensure safety in a high-risk environment</a></h5><a class="tag-link" href="#">Risk management</a>
+                  </div>
+                  <div class="card-footer"><a class="post-author" href="#">
+                      <div class="post-author-avatar"><img src="{% static 'website\img\blog\authors\th01.jpg' %}" alt="Post Author">
+                      </div>
+                      <div class="post-author-name">Sara Palson</div></a>
+                    <div class="post-meta"><a href="#"><i class="fe-icon-message-square"></i>21</a><span><i class="fe-icon-clock"></i>Sep 03, 2018</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 mb-4">
+                <div class="blog-card border"><a class="post-thumb" href="#"><img src="{% static 'website\img\homepages\corporate-website\news02.jpg' %}" alt="Post Thumbnail"></a>
+                  <div class="card-body">
+                    <h5 class="post-title"><a href="#">Adapt to a changing business environment</a></h5><a class="tag-link" href="#">Business</a>
+                  </div>
+                  <div class="card-footer"><a class="post-author" href="#">
+                      <div class="post-author-avatar"><img src="{% static 'website\img\blog\authors\th02.jpg' %}" alt="Post Author">
+                      </div>
+                      <div class="post-author-name">Mark Peterson</div></a>
+                    <div class="post-meta"><a href="#"><i class="fe-icon-message-square"></i>19</a><span><i class="fe-icon-clock"></i>Aug 26, 2018</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-gradient py-4">
+      <div class="container position-relative bg-no-repeat bg-center py-5 text-center" style="background-image: url({% static 'website/img/pages/dotted-map.png' %});">
+        <h2 class="block-title text-white mt-5 mb-4">Let's Connect<small class="text-white">Share your ideas with us and we do our best to turn your ideas into reality.</small></h2><a class="btn btn-light mb-5" href="contacts-v1.html">Contact Us</a>
+      </div>
+    </section>
+{% endblock  %}
+
+
+
+
+
+    
